@@ -1,0 +1,20 @@
+parent(adam,john).
+parent(eve,john).
+parent(eve,lisa).
+parent(john,anne).
+parent(john,pat).
+parent(pat,jacob).
+parent(carol,jacob).
+male(adam).
+male(john).
+male(jacob).
+female(eve).
+female(lisa).
+female(anne).
+female(pat).
+female(carol).
+mother:-parent(X),female(X). 
+father:-parent(X),male(X).
+grandparent(X,Y):-parent(Z,X),parent(Y,Z). /* X=Grandchild, Y=Grandparent, Z=Parent */
+grandmother:-grandparent(X,Y),female(X).
+grandfather:-grandparent(X,Y),male(X).
